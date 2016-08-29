@@ -1,46 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Tom Schuermans - Full slack developer</title>
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:700|Sanchez">
-        <link rel="stylesheet" href="/style.css">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tom Schuermans - Full slack developer</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:700|Sanchez">
+    <link rel="stylesheet" href="/style.css">
 
-        <!--[if lt IE 9]>
-            <script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
-            <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
-        <![endif]-->
-    </head>
-    <body>
-        <div class="container">
+    <!--[if lt IE 9]>
+    <script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
             <a href="/">
                 <h1>Tom Schuermans</h1>
             </a>
             <hr />
-            <section>
-                <article>
-                    <header>
-                        <a href="php-clearing-the-opcache.html">
-                            <h2>PHP - Clearing the OPcache</h2>
-                        </a>
-                    </header>
-                    <h3>Problem with OPCache</h3>
-                    <p>I recently made the switch to PHP 5.5, because … features! Thanks to my colleague <a href="https://ma.ttias.be/php-opcache-and-symlink-based-deploys/" target="_blank" rel="noopener noreferrer">Mattias</a>, I discovered that my Capistrano deploys were not automatically updated on the server. This was caused by the fact that PHP 5.5+ OPcache ignores Capistrano’s symlinked deploys.</p>
-                    <h3>As php.net states:</h3>
-                    <p>OPcache improves PHP performance by storing precompiled script bytecode in shared memory, thereby removing the need for PHP to load and parse scripts on each request.</p>
-                    <h3>Cause of the problem</h3>
-                    <p>Contrary to APC, OPcache is not inode-based. TL;DR: OPcache resolves symlinks and stores them in a cache, so a new deploy’s symlink resolves to a different path than the one currently stored in OPcache. This causes PHP-FPM to load the old files, because the old resolved symlink is still cached.</p>
-                    <h3>Solution to this problem</h3>
-                    <p>As Mattias already stated in his post, you can solve this problem by restarting PHP-FPM. Another solution might be to execute a cUrl call to a php script which clears your cache. An example of such script can be found below:</p>
-                    <script src="https://gist.github.com/TSchuermans/6fc40982756a88e2cf3a.js"></script>
-                    <p>A very detailed explanation on how OPcache works can be found in a <a href="http://jpauli.github.io/2015/03/05/opcache.html" target="_blank" rel="noopener noreferrer">post</a> by Julien Pauli</p>
-                </article>
-            </section>
+            <h2>PHP - Clearing the OPcache</h2>
+<h3>Problem with OPCache</h3>
+<p>I recently made the switch to PHP 5.5, because … features! Thanks to my
+colleague <a href="https://ma.ttias.be/php-opcache-and-symlink-based-deploys/">Mattias</a>, I discovered that my Capistrano deploys were not
+automatically updated on the server. This was caused by the fact that
+PHP 5.5+ OPcache ignores Capistrano’s symlinked deploys.</p>
+<h3>As php.net states:</h3>
+<p>OPcache improves PHP performance by storing precompiled script bytecode
+in shared memory, thereby removing the need for PHP to load and parse
+scripts on each request.</p>
+<h3>Cause of the problem</h3>
+<p>Contrary to APC, OPcache is not inode-based. TL;DR: OPcache resolves
+symlinks and stores them in a cache, so a new deploy’s symlink resolves
+to a different path than the one currently stored in OPcache. This
+causes PHP-FPM to load the old files, because the old resolved symlink
+is still cached.</p>
+<h3>Solution to this problem</h3>
+<p>As Mattias already stated in his post, you can solve this problem by
+restarting PHP-FPM. Another solution might be to execute a cUrl call to
+a php script which clears your cache. An example of such script can be
+found below:</p>
+<script src="https://gist.github.com/TSchuermans/6fc40982756a88e2cf3a.js"></script>
+<p>A very detailed explanation on how OPcache works can be found in a
+<a href="http://jpauli.github.io/2015/03/05/opcache.html">post</a> by Julien Pauli</p>
         </div>
-        <script src="//cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-        <script src="//cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
-    </body>
+    </div>
+</div>
+<div style="display: none;">tschuermans.be</div>
+<script src="//cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+</body>
 </html>
