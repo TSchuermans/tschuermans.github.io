@@ -41,7 +41,7 @@
                         </a>
                     </header>
                     <h3>Problem with OPCache</h3>
-                    <p>I recently made the switch to PHP 5.5, because … features! Thanks to my colleague [Mattias](https://ma.ttias.be/php-opcache-and-symlink-based-deploys/), I discovered that my Capistrano deploys were not automatically updated on the server. This was caused by the fact that PHP 5.5+ OPcache ignores Capistrano’s symlinked deploys.</p>
+                    <p>I recently made the switch to PHP 5.5, because … features! Thanks to my colleague <a href="https://ma.ttias.be/php-opcache-and-symlink-based-deploys/" target="_blank" rel="noopener noreferrer">Mattias</a>, I discovered that my Capistrano deploys were not automatically updated on the server. This was caused by the fact that PHP 5.5+ OPcache ignores Capistrano’s symlinked deploys.</p>
                     <h3>As php.net states:</h3>
                     <p>OPcache improves PHP performance by storing precompiled script bytecode in shared memory, thereby removing the need for PHP to load and parse scripts on each request.</p>
                     <h3>Cause of the problem</h3>
@@ -49,7 +49,7 @@
                     <h3>Solution to this problem</h3>
                     <p>As Mattias already stated in his post, you can solve this problem by restarting PHP-FPM. Another solution might be to execute a cUrl call to a php script which clears your cache. An example of such script can be found below:</p>
                     <script src="https://gist.github.com/TSchuermans/6fc40982756a88e2cf3a.js"></script>
-                    <p>A very detailed explanation on how OPcache works can be found in a [post](http://jpauli.github.io/2015/03/05/opcache.html) by Julien Pauli</p>
+                    <p>A very detailed explanation on how OPcache works can be found in a <a href="http://jpauli.github.io/2015/03/05/opcache.html" target="_blank" rel="noopener noreferrer">post</a> by Julien Pauli</p>
                 </article>
             </section>
         </div>
