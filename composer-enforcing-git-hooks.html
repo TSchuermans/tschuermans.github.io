@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tom Schuermans - Full slack developer</title>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:700|Sanchez">
+        <link rel="stylesheet" href="/style.css">
+
+        <!--[if lt IE 9]>
+            <script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+            <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="container">
+            <a href="/">
+                <h1>Tom Schuermans</h1>
+            </a>
+            <hr />
+            <section>
+                <article>
+                    <header>
+                        <a href="git-comparing-branch-commits.html">
+                            <h2>Composer - Enforcing GIT hooks</h2>
+                        </a>
+                    </header>
+                    <p>
+                        <a href="https://getcomposer.org/" target="_blank" rel="noopener noreferrer">Composer</a> allows you to use custom plugins to add extra behaviour to install, update, uninstall, ... events. The first time I "discovered" this extra functionality was during a <a href="https://speakerdeck.com/veewee/assuring-code-quality-with-grumphp-phpleuven12" target="_blank" rel="noopener noreferrer">talk</a> by Toon Verwerft (<a href="https://twitter.com/toonverwerft" rel="noopener noreferrer" target="_blank">@toonverwerft</a>) about <a href="https://github.com/phpro/grumphp" target="_blank" rel="noopener noreferrer">GrumPHP</a>, a PHP QA tool.
+                    </p>
+                    <h3>GrumPHP</h3>
+                    <p>
+                        GrumPHP is a Composer plugin which installs a couple of GIT hooks in your repository, which perform QA checking on your project.
+                    </p>
+                    <p>
+                        The copying of the GIT hooks is actually pretty easy using a plugin, you just attach event handlers to certain Composer package/script events such as install, update and uninstall.
+                    </p>
+                    <h3>Implementation example</h3>
+                    <p>
+                        I made two repositories which display how easily you can enforce git hooks for all your projects by requiring 1 extra package.
+                    </p>
+                    <p>
+                        Check <a href="https://github.com/TSchuermans/enforce-hooks" target="_blank">TSchuermans/enforce-hooks</a> for the source code of the plugin (very basic stuff) and <a href="https://github.com/TSchuermans/enforce-hooks-implementation" target="_blank">TSchuermans/enforce-hooks-implementation</a> for an implementation example of said plugin.
+                    </p>
+                    <h3>Creating your own implementation</h3>
+                    <p>
+                        You can easily customise which GIT hooks should be enforced by forking my repository and placing your own GIT hooks in the hooks directory.
+                    </p>
+                    <p>
+                        <strong>Note: </strong>If you want, you can still bypass commit checking by adding the --no-verify option to your commit command.
+                    </p>
+                </article>
+            </section>
+        </div>
+        <script src="//cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+    </body>
+</html>
