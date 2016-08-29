@@ -41,5 +41,14 @@ following guide:</p>
 <div style="display: none;">tschuermans.be</div>
 <script src="//cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script src="//cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script>
+    $(function () {
+        var date = new Date();
+
+        if (date.getHours() > 21) {
+            $('body').addClass('night-mode');
+        }
+    });
+</script>
 </body>
 </html>
