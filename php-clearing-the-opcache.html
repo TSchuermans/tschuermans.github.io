@@ -56,7 +56,7 @@ found below:</p>
     $(function () {
         var date = new Date();
 
-        if (date.getHours() > 21) {
+        if (date.getHours() < 10 || date.getHours() > 21) {
             $('body').addClass('night-mode');
         }
     });
