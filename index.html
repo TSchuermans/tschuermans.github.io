@@ -45,11 +45,6 @@
     function loadStyleSheet(src){
         var stylesheet = document.createElement('link');
         stylesheet.href = src;
-
-        if (integrity) {
-            stylesheet.integrity = integrity;
-        }
-
         stylesheet.crossOrigin ="anonymous";
         stylesheet.rel = 'stylesheet';
         document.getElementsByTagName('head')[0].appendChild(stylesheet);
